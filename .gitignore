@@ -10,4 +10,4 @@
 !/.eslintrc.js
 !/yarn.lock
 !/.babelrc
-!/.rollup.config.js
+!/rollup.config.js
