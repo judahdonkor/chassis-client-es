@@ -1,7 +1,6 @@
 **/.*
 /*
 !/src/
-!/test/
 !/.github/
 !/tsconfig.json
 !/package.json
@@ -10,3 +9,5 @@
 !/LICENSE
 !/.eslintrc.js
 !/yarn.lock
+!/.babelrc
+!/.rollup.config.js
