@@ -23,4 +23,5 @@ class Chassis {
   }
 }
 
+export type { Enum }
 export { Repository, Chassis, Exchange };
