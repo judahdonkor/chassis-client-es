@@ -4,7 +4,7 @@
     "license": "MIT",
     "main": "lib/bundle.cjs.js",
     "module": "lib/bundle.esm.js",
-    "types": "lib/types/index.d.ts",
+    "types": "types/index.d.ts",
     "devDependencies": {
         "@babel/core": "^7.11.6",
         "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -20,7 +20,7 @@
         "typescript": "^4.0.3"
     },
     "scripts": {
-        "build": "rm -rf lib && rollup -c && tsc",
+        "build": "rm -rf lib types && rollup -c && tsc",
         "dev": "rollup -c -w"
     },
     "dependencies": {
