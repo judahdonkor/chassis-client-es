@@ -9,8 +9,8 @@ class Exchange {
   constructor(axios: AxiosStatic) {
     this.axios = axios;
   }
-  async me() {
-    return (await this.axios.get(`${path}/me`)).data;
+  async appuser() {
+    return (await this.axios.get(`${path}/appuser`)).data;
   }
   async signOut() {
     await this.axios.get(`${path}/sign-out`);
@@ -35,6 +35,5 @@ class Exchange {
   }
 }
 
-export { Exchange };  
+export { Exchange };
 export type { Credentials };
-

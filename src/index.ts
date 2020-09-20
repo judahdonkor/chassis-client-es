@@ -18,7 +18,7 @@ class Chassis {
     this.repos = new Repository(axios);
     this.xchg = new Exchange(axios);
   }
-  async enumerate(cls: string): Promise<Enum[]> {
+  async enum(cls: string): Promise<Enum[]> {
     return (await this.axios.get(`enum/${cls}`)).data;
   }
 }
