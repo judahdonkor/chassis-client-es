@@ -35,4 +35,6 @@ class Exchange {
   }
 }
 
-export { Exchange, Credentials };
+export { Exchange };  
+export type { Credentials };
+

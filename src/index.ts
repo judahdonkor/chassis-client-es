@@ -23,6 +23,4 @@ class Chassis {
   }
 }
 
-export default (axios: AxiosStatic) => new Chassis(axios);
-
 export { Repository, Chassis, Exchange };

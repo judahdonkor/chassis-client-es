@@ -8,48 +8,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Begin CI...
+      - name: Checkout latest code
         uses: actions/checkout@v2
 
-      - name: Use Node 12
+      - name: Set up node 12
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
-          registry-url: "https://npm.pkg.github.com"
-
-      - name: Use cached node_modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: nodeModules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            nodeModules-
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        env:
-          CI: true
+        run: npm i
 
-      # - name: Lint
-      #   run: yarn lint
-      #   env:
-      #     CI: true
-
-      # - name: Test
-      #   run: yarn test --ci --coverage --maxWorkers=2
-      #   env:
-      #     CI: true
-
-      - name: Build
-        run: yarn build
-        env:
-          CI: true
+      - name: Build artifact
+        run: npm run build
 
       - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
-      - run: yarn version --patch
+      - run: npm version patch --force
       - run: git push --tags && git push
-      - name: Publish
-        run: yarn publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          CI: true

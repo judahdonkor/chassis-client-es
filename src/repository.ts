@@ -69,6 +69,9 @@ class Repository {
 }
 
 export {
+  Repository
+};
+export type {
   Pagination,
   Entity,
   PredicateType,
@@ -77,6 +80,6 @@ export {
   Links,
   Meta,
   PagedResponse,
-  ListParams,
-  Repository,
+  ListParams
 };
+
