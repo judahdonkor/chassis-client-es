@@ -63,6 +63,15 @@ class Repository {
   async find(mdl: string, ...where: Predicate[]): Promise<Entity> {
     return (await this.axios.post(`${path}/${mdl}/find`, where)).data;
   }
+  async findById(mdl: string, id: unknown): Promise<Entity> {
+    return this.find(mdl, {
+      type: 'EQUAL',
+      params: {
+        x: 'id',
+        y: id
+      }
+    });
+  }
   async list(mdl: string, params: ListParams): Promise<PagedResponse<Entity>> {
     return (await this.axios.post(`${path}/${mdl}/list`, params)).data;
   }
@@ -82,4 +91,3 @@ export type {
   PagedResponse,
   ListParams
 };
-
