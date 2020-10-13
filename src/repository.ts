@@ -75,6 +75,9 @@ class Repository {
   async list(mdl: string, params: ListParams): Promise<PagedResponse<Entity>> {
     return (await this.axios.post(`${path}/${mdl}/list`, params)).data;
   }
+  async activate(mdl: string, id: number, act: boolean = true): Promise<void> {
+    await this.axios.get(`${path}/act/${mdl}/${id}/${act ? '' : 'deactivate'}`);
+  }
 }
 
 export {
