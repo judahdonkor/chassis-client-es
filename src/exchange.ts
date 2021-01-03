@@ -21,9 +21,14 @@ class Exchange {
       | Pick<Credentials, 'email' | 'password'>
       | Pick<Credentials, 'email' | 'token'>
       | Pick<Credentials, 'phone' | 'password'>
-      | Pick<Credentials, 'phone' | 'token'>
+      | Pick<Credentials, 'phone' | 'token'>,
+    role?: string
   ): Promise<string> {
-    const tk = (await this.axios.post(`${path}/sign-in`, credentials)).data;
+    const tk = (await this.axios.post(`${path}/sign-in`, credentials, {
+      params: {
+        role
+      }
+    })).data;
     this.axios.defaults.headers.common['Authorization'] = `Bearer ${tk}`;
     return tk;
   }
