@@ -8,8 +8,13 @@ class Creation {
   constructor(axios: AxiosStatic) {
     this.axios = axios;
   }
-  async find(mdl: string, key: string): Promise<Entity> {
-    return (await this.axios.get(`${path}/${mdl}/${key}`)).data;
+  async find(mdl: string, key: string, context?: {
+    'disc-cls': string
+    'disc-id': number
+  }): Promise<Entity> {
+    return (await this.axios.get(`${path}/${mdl}/${key}`, {
+      params: context || {}
+    })).data;
   }
   // implement when needed
   // async list(params: ): Promise<Entity[]> {
