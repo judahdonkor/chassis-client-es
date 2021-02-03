@@ -1,6 +1,6 @@
 {
     "name": "@judahdonkor/chassis-client-es",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "license": "MIT",
     "main": "lib/bundle.cjs.js",
     "module": "lib/bundle.esm.js",
