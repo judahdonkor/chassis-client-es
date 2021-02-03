@@ -14,7 +14,8 @@ type PredicateType =
   | 'OR'
   | 'AND'
   | 'IS_NULL'
-  | 'IS_NOT_NULL';
+  | 'IS_NOT_NULL'
+  | 'IN';
 
 interface Predicate {
   type: PredicateType;
