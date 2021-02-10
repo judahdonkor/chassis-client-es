@@ -1,6 +1,6 @@
 import { AxiosStatic } from 'axios';
 
-type Credentials = Record<'email' | 'phone' | 'password' | 'token', string>;
+type Credentials = Record<'email' | 'phone' | 'password' | 'token' | 'disc', string>;
 
 const path = 'xchg';
 
@@ -22,6 +22,7 @@ class Exchange {
       | Pick<Credentials, 'email' | 'token'>
       | Pick<Credentials, 'phone' | 'password'>
       | Pick<Credentials, 'phone' | 'token'>
+      | Pick<Credentials, 'disc' | 'password'>
   ): Promise<string> {
     const tk = (await this.axios.post(`${path}/sign-in`, credentials)).data;
     this.axios.defaults.headers.common['Authorization'] = `Bearer ${tk}`;
